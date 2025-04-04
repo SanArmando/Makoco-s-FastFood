@@ -29,6 +29,7 @@ header h1 {
     margin: 0;
     padding: 20px;
     text-align: center;
+    line-height: 1.2; /* Ajustar el espaciado entre líneas */
 }
 
 nav ul {
@@ -125,4 +126,12 @@ button {
     .menu-item {
         flex: 1 1 100%; /* Ocupa todo el ancho en pantallas pequeñas */
     }
+}
+
+/* Estilo para la palabra "Fastfood" */
+.subtitle {
+    display: block; /* Colocar en una nueva línea */
+    font-size: 1.25rem; /* Tamaño al 50% del texto principal */
+    color: #fff; /* Blanco */
+    margin-top: 5px; /* Espaciado superior */
 }
