@@ -6,12 +6,14 @@ body {
     background-color: #000;
     color: #FFD700;
     box-sizing: border-box;
+    text-align: center; /* Centrar todo el texto */
 }
 
 header {
-    background-color: #ff5733;
-    color: white;
-    padding: 15px 0;
+    background-color: #FFA500;
+    color: #fff;
+    padding: 20px;
+    text-align: center; /* Centrar texto del encabezado */
 }
 
 nav ul {
@@ -37,6 +39,7 @@ a {
     justify-content: center; /* Centrar los elementos horizontalmente */
     gap: 20px; /* Espaciado entre los cuadros */
     padding: 20px;
+    text-align: center; /* Centrar texto dentro del menú */
 }
 
 /* Cuadros del menú */
@@ -54,6 +57,7 @@ a {
     background-color: #222;
     color: #FFD700;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Centrar texto dentro de cada cuadro */
 }
 
 /* Asegurar que las imágenes dentro del menú sean proporcionales */
@@ -87,6 +91,12 @@ button {
     padding: 10px;
     border: none;
     cursor: pointer;
+}
+
+/* Sección de contacto */
+#contacto {
+    padding: 20px;
+    text-align: center; /* Centrar texto de la sección de contacto */
 }
 
 /* Media queries para dispositivos más pequeños */
