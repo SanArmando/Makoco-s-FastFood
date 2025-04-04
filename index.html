@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastFood Express</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Makoco's🍔</h1>
+        <h2>FastFood</h2>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#pedido">Hacer Pedido</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="menu">
+        <h2>Menú</h2>
+        <div class="menu-item">
+            <img src="images/patatas-fritas-.webp" alt="Hamburguesa">
+            <h3>Hamburguesa Clásica</h3>
+            <p>$5.99</p>
+            <button onclick="agregarAlCarrito('Hamburguesa Clásica', 5.99)">Añadir</button>
+        </div>
+        <div class="menu-item">
+            <img src="images/patatas-fritas-.webp" alt="Papas Fritas">
+            <h3>Papas Fritas</h3>
+            <p>$2.99</p>
+            <button onclick="agregarAlCarrito('Papas Fritas', 2.99)">Añadir</button>
+        </div>
+    </section>
+
+    <section id="pedido">
+        <h2>Carrito de Compras</h2>
+        <ul id="carrito"></ul>
+        <button onclick="realizarPedido()">Realizar Pedido</button>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>📍 Dirección: Calle 123, Ciudad XYZ</p>
+        <p>📞 Teléfono: +123 456 789</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    color: rgb(241, 237, 0); /* Opcional: para que el texto sea legible */
+}
+
+header {
+    background-color: #ff5733;
+    color: white;
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.menu-item {
+    display: inline-block;
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.menu-item img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+}
+
+button {
+    background: #ff5733;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
