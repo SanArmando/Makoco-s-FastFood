@@ -16,6 +16,21 @@ header {
     text-align: center; /* Centrar texto del encabezado */
 }
 
+/* Estilo para la letra "M" en el encabezado */
+.highlight-m {
+    color: #FFD700; /* Amarillo */
+    font-weight: bold; /* Opcional: resaltar más la "M" */
+}
+
+/* Estilo para el resto del encabezado */
+header h1 {
+    color: #fff; /* Blanco para el resto del texto */
+    font-size: 2.5rem; /* Tamaño del texto */
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
