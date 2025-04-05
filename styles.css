@@ -135,3 +135,29 @@ button {
     color: #fff; /* Blanco */
     margin-top: 5px; /* Espaciado superior */
 }
+
+/* Estilo para el pie de página */
+footer {
+    background-color: #222; /* Fondo oscuro */
+    color: #FFD700; /* Texto amarillo */
+    text-align: center; /* Centrar contenido */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Estilo para los enlaces de redes sociales */
+.social-links {
+    margin-top: 10px;
+}
+
+.social-icon {
+    color: #FFD700; /* Amarillo */
+    text-decoration: none; /* Quitar subrayado */
+    font-size: 1.2rem; /* Tamaño del texto */
+    margin: 0 10px; /* Espaciado entre enlaces */
+    transition: color 0.3s ease; /* Efecto de transición */
+}
+
+.social-icon:hover {
+    color: #FFA500; /* Cambiar a naranja al pasar el mouse */
+}
