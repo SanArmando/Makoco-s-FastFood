@@ -191,7 +191,7 @@ body {
 
 /* Galería */
 .galeria {
-  background: #f4f4f4;
+  background: #fa0303;
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -217,7 +217,7 @@ body {
 .reserva {
   padding: 4rem 2rem;
   text-align: center;
-  background: #fff;
+  background: #fa0202;
 }
 
 .reserva h2 {
@@ -244,6 +244,16 @@ body {
   background: var(--amarillo);
   color: var(--negro);
   font-weight: bold;
+}
+
+#pedido {
+    background-color: #c00; /* Rojo */
+    color: #FFD700;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
@@ -354,5 +364,39 @@ body {
   color: var(--amarillo);
   font-weight: bold;
   margin-bottom: 1rem;
+}
+
+/* Modal para el recibo */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0; top: 0; width: 100%; height: 100%;
+  overflow: auto; background: rgba(0,0,0,0.7);
+}
+.modal-content {
+  background: #222; color: #FFD700; margin: 10% auto; padding: 20px;
+  border-radius: 10px; width: 90%; max-width: 400px; text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  animation: modalFadeIn 0.5s;
+}
+@keyframes modalFadeIn { from {transform: scale(0.8);} to {transform: scale(1);} }
+.close { color: #FFD700; float: right; font-size: 2rem; cursor: pointer; }
+.close:focus { outline: 2px solid #FFD700; }
+#confirmacion-carrito {
+  display: none;
+  background: #FFA500;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  position: fixed;
+  top: 20px; right: 20px;
+  z-index: 2000;
+  animation: fadeOut 2s forwards;
+}
+@keyframes fadeOut {
+  0% { opacity: 1;}
+  80% { opacity: 1;}
+  100% { opacity: 0;}
 }
 

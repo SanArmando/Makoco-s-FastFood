@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Carrito de compras
-  const carrito = [];
+  let carrito = [];
   const carritoModal = document.getElementById('carrito-modal');
   const abrirCarritoBtn = document.getElementById('abrir-carrito');
   const cerrarCarritoBtn = document.getElementById('cerrar-carrito');
@@ -107,22 +107,81 @@ document.addEventListener('DOMContentLoaded', () => {
     carritoModal.classList.remove('active');
   });
 
-  // Actualizar lista y total
-  function actualizarCarrito() {
-    carritoLista.innerHTML = '';
-    let total = 0;
-    carrito.forEach((item, idx) => {
-      total += item.precio;
-      const li = document.createElement('li');
-      li.innerHTML = `${item.producto} - <strong>$${item.precio}</strong> <button onclick="eliminarDelCarrito(${idx})" style="background:var(--amarillo);color:var(--negro);border:none;border-radius:8px;padding:2px 8px;cursor:pointer;">Eliminar</button>`;
-      carritoLista.appendChild(li);
-    });
-    carritoTotal.textContent = `Total: $${total}`;
+  // Vaciar carrito
+  function vaciarCarrito() {
+    carrito = [];
+    actualizarCarrito();
+    localStorage.removeItem('carrito');
+    mostrarConfirmacion('Carrito vaciado');
   }
 
+  // Actualizar lista y total
+  function actualizarCarrito() {
+    const listaPedido = document.getElementById('lista-pedido');
+    const totalPedido = document.getElementById('total-pedido');
+    listaPedido.innerHTML = '';
+    let total = 0;
+    carrito.forEach((item, idx) => {
+      const li = document.createElement('li');
+      li.innerHTML = `${item.producto} - $${item.precio.toFixed(2)} 
+      <button onclick="eliminarProducto(${idx})" aria-label="Eliminar ${item.producto}">❌</button>`;
+      listaPedido.appendChild(li);
+      total += item.precio;
+    });
+    totalPedido.textContent = `Total: $${total.toFixed(2)}`;
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+  }
+  window.onload = function() {
+    const guardado = localStorage.getItem('carrito');
+    if (guardado) {
+        carrito = JSON.parse(guardado);
+        actualizarCarrito();
+    }
+}
+
   // Eliminar producto del carrito
-  window.eliminarDelCarrito = function(idx) {
+  function eliminarProducto(idx) {
     carrito.splice(idx, 1);
     actualizarCarrito();
-  };
+    mostrarConfirmacion('Producto eliminado');
+  }
+
+  // Mostrar el recibo en un modal
+  function mostrarModalRecibo(recibo) {
+    document.getElementById('contenido-recibo').textContent = recibo;
+    document.getElementById('modal-recibo').style.display = 'block';
+    document.getElementById('modal-recibo').focus();
+  }
+  function cerrarModalRecibo() {
+    document.getElementById('modal-recibo').style.display = 'none';
+  }
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('modal-recibo')) cerrarModalRecibo();
+  }
+
+  function mostrarConfirmacion(mensaje) {
+    const confirmacion = document.getElementById('confirmacion-carrito');
+    confirmacion.textContent = mensaje;
+    confirmacion.style.display = 'block';
+    setTimeout(() => { confirmacion.style.display = 'none'; }, 2000);
+  }
+
+  function agregarAlCarrito(producto, precio, cantidad = 1) {
+    if (!producto || precio < 0 || cantidad < 1) {
+        mostrarConfirmacion('Datos inválidos');
+        return;
+    }
+    for (let i = 0; i < cantidad; i++) {
+        carrito.push({ producto, precio });
+    }
+    actualizarCarrito();
+    mostrarConfirmacion('Producto añadido al carrito');
+}
+
+  function realizarPedido() {
+    // Guardar en historial
+    let historial = JSON.parse(localStorage.getItem('historialPedidos') || '[]');
+    historial.push({ pedido: recibo, fecha: new Date().toLocaleString() });
+    localStorage.setItem('historialPedidos', JSON.stringify(historial));
+  }
 });
