@@ -171,9 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mostrarConfirmacion('Datos inválidos');
         return;
     }
-    for (let i = 0; i < cantidad; i++) {
-        carrito.push({ producto, precio });
-    }
+    carrito.push({ producto, precio });
     actualizarCarrito();
     mostrarConfirmacion('Producto añadido al carrito');
 }
