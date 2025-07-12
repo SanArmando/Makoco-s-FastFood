@@ -1,86 +1,169 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FastFood Express</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>
-            <span class="highlight-m">M</span>akoco's
-            <span class="subtitle">San Armando 🍔</span>
-        </h1>
-    </header>
-    <h2>Comida Con La Más Alta Calidad De Santa Marta</h2>
-    <nav>
-        <ul>
-            <li><a href="#menu">Menú</a></li>
-            <li><a href="#pedido">Hacer Pedido</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sabores Urbanos</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="hero">
+      <nav class="nav">
+        <div class="logo">Sabores Donde San Armando</div>
+        <ul class="menu">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#reserva">Reservas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
-    </nav>
+      </nav>
+      <div class="hero-content">
+        <h1>Explora el sabor en cada bocado</h1>
+        <p>Una experiencia culinaria única en el corazón de la ciudad</p>
+        <a href="#reserva" class="btn">Reserva Ahora</a>
+      </div>
+    </header>
 
-    <section id="menu">
-        <h2>Menú</h2>
+    <!-- Menú Makoco's Fast Food -->
+    <section id="menu" class="menu-section">
+      <h2>Menú Destacado</h2>
+      <div class="menu-grid">
         <div class="menu-item">
-            <img src="images/HAMBURGUESA.png" alt="Hamburguesa">
-            <h3>Hamburguesa De La Casa</h3>
-            <p>$30.000</p>
-            <button onclick="agregarAlCarrito('Hamburguesa De La Casa', 30.000)">Añadir</button>
+          <img src="URL_IMAGEN_POLLO" alt="Chuzopan de Pollo" />
+          <div class="menu-precio">$8500</div>
+          <h3>Chuzopan de Pollo</h3>
+          <p>Pan + pechuga + papita chongo + salsas + queso + tocineta + lechuga</p>
+          <button class="menu-btn">Agregar al carrito</button>
         </div>
         <div class="menu-item">
-            <img src="images/desgranadopollo.webp" alt="Desgranado De Pollo">
-            <h3>Desgranado De Pollo</h3>
-            <p>$15.000</p>
-            <button onclick="agregarAlCarrito('Desgranado De Pollo', 15.000)">Añadir</button>
+          <img src="URL_IMAGEN_CHORIZO" alt="Chuzopan Chorizo" />
+          <div class="menu-precio">$7500</div>
+          <h3>Chuzopan Chorizo</h3>
+          <p>Pan + chorizo + papita chongo + salsas + queso + tocineta + lechuga</p>
+          <button class="menu-btn">Agregar al carrito</button>
         </div>
         <div class="menu-item">
-            <img src="images/Chusopan.jpeg"ChusoPan">
-            <h3>ChusoPan</h3>
-            <p>$15.000</p>
-            <button onclick="agregarAlCarrito('ChusoPan', 15.000)">Añadir</button>
+          <img src="URL_IMAGEN_BUTIFARRA" alt="Chuzopan Butifarra" />
+          <div class="menu-precio">$7500</div>
+          <h3>Chuzopan Butifarra</h3>
+          <p>Pan + butifarra + papita chongo + salsas + queso + tocineta + lechuga</p>
+          <button class="menu-btn">Agregar al carrito</button>
         </div>
         <div class="menu-item">
-            <img src="images/asados.jpg" alt="Asasdos De La Casa">
-            <h3>Asasdos De La Casa</h3>
-            <p>$15.000</p>
-            <button onclick="agregarAlCarrito('Asasdos De La Casa', 15.000)">Añadir</button>
+          <img src="URL_IMAGEN_4CARNES" alt="Chuzopan de 4 Carnes" />
+          <div class="menu-precio">$12500</div>
+          <h3>Chuzopan de 4 Carnes</h3>
+          <p>Pan + butifarra + chorizo + pechuga + carne de res + papita chongo + salsas + queso + tocineta + lechuga</p>
+          <button class="menu-btn">Agregar al carrito</button>
         </div>
         <div class="menu-item">
-            <img src="images/Perro Caliente.png" alt="Perros Calientes">
-            <h3>Perros Calientes</h3>
-            <p>$10.000</p>
-            <button onclick="agregarAlCarrito('Perros Calientes', 10.000)">Añadir</button>
-            </div>
-            <div class="menu-item">
-                <img src="images/Arepas Desgranado.jpeg" alt="Arepas Desgranado">
-                <h3>Arepas Desgranado</h3>
-                <p>$45.000</p>
-                <button onclick="agregarAlCarrito('Arepas Desgranado', 45.000)">Añadir</button>
+          <img src="URL_IMAGEN_CLASICA" alt="Hamburguesa Clásica" />
+          <div class="menu-precio">$14000</div>
+          <h3>Hamburguesa Clásica</h3>
+          <p>Pan + carne de res + cerdo + cebolla + tomate + queso + lechuga + salsas</p>
+          <button class="menu-btn">Agregar al carrito</button>
+        </div>
+        <div class="menu-item">
+          <img src="URL_IMAGEN_TAGANGA" alt="Hamburguesa Mi Taganga" />
+          <div class="menu-precio">$24000</div>
+          <h3>Hamburguesa Mi Taganga</h3>
+          <p>Pan + carne + cebolla encurtida + tomate verde + papita ripiada + doritos + queso + salsas + lechuga + tocineta</p>
+          <button class="menu-btn">Agregar al carrito</button>
+        </div>
+        <div class="menu-item">
+          <img src="URL_IMAGEN_CEBOLLERO_PEQ" alt="Hot Dog Cebollero Pequeño" />
+          <div class="menu-precio">$7000</div>
+          <h3>Hot Dog Cebollero Pequeño</h3>
+          <p>Pan + salchicha + cebolla + papa chongo + queso + salsa</p>
+          <button class="menu-btn">Agregar al carrito</button>
+        </div>
+        <div class="menu-item">
+          <img src="URL_IMAGEN_CEBOLLERO_GRA" alt="Hot Dog Cebollero Grande" />
+          <div class="menu-precio">$8000</div>
+          <h3>Hot Dog Cebollero Grande</h3>
+          <p>Pan + salchicha + cebolla + papa chongo + queso + salsa</p>
+          <button class="menu-btn">Agregar al carrito</button>
+        </div>
+        <div class="menu-item">
+          <img src="URL_IMAGEN_ESPECIAL" alt="Hot Dog Especial" />
+          <div class="menu-precio">$14000</div>
+          <h3>Hot Dog Especial</h3>
+          <p>Pan + chorizo + pechuga + butifarra + maíz + salchicha + papita chongo + queso + salsas + tocineta</p>
+          <button class="menu-btn">Agregar al carrito</button>
+        </div>
+        <div class="menu-item">
+          <img src="URL_IMAGEN_DESGRANADO_AREPA" alt="Desgranado de Arepa" />
+          <div class="menu-precio">$14000</div>
+          <h3>Desgranado de Arepa</h3>
+          <p>Arepa antioqueña + pechuga + maíz + salchicha + papita chongo + queso + salsas</p>
+          <button class="menu-btn">Agregar al carrito</button>
+        </div>
+        <div class="menu-item">
+          <img src="URL_IMAGEN_AREPA_CARNE" alt="Arepa Degranda a Carne" />
+          <div class="menu-precio">$16000</div>
+          <h3>Arepa Degranda a Carne</h3>
+          <p>Arepa antioqueña + pechuga + carne + maíz + salchicha + papita chongo + queso + salsas</p>
+          <button class="menu-btn">Agregar al carrito</button>
+        </div>
+        <div class="menu-item">
+          <img src="URL_IMAGEN_DESGRANADO_ESPECIAL" alt="Desgranado Especial" />
+          <div class="menu-precio">$19000</div>
+          <h3>Desgranado Especial</h3>
+          <p>Pizza individual + papas y refresco</p>
+          <button class="menu-btn">Agregar al carrito</button>
+        </div>
+      </div>
     </section>
 
-    <section id="pedido">
-        <h2>Carrito de Compras</h2>
-        <ul id="carrito"></ul>
-        <button onclick="realizarPedido()">Realizar Pedido</button>
+    <!-- Galería -->
+    <section id="galeria" class="galeria">
+      <h2>Galería</h2>
+      <div class="galeria-grid">
+        <img src="https://source.unsplash.com/random/300x300?restaurant" alt="Ambiente" />
+        <img src="https://source.unsplash.com/random/300x300?dining" alt="Cena Romántica" />
+        <img src="https://source.unsplash.com/random/300x300?chef" alt="Chef" />
+        <img src="https://source.unsplash.com/random/300x300?cocktail" alt="Bebidas" />
+      </div>
     </section>
 
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>📞 Celular : +123 456 789</p>
-        <p>📍 Dirección: Calle 123, Ciudad Barrio Mamatoco</p>
+    <!-- Reservas -->
+    <section id="reserva" class="reserva">
+      <h2>Reserva tu Mesa</h2>
+      <form class="reserva-form">
+        <input type="text" placeholder="Nombre completo" required />
+        <input type="email" placeholder="Correo electrónico" required />
+        <input type="date" required />
+        <input type="time" required />
+        <input type="number" placeholder="Número de personas" required />
+        <button type="submit">Reservar</button>
+      </form>
     </section>
 
-    <footer>
-        <h2>Síguenos en nuestras redes sociales</h2>
-        <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61572751850561" target="_blank" class="social-icon">Facebook</a>
-            <a href="https://www.instagram.com/makocosfastfood/?igsh=ZGUzMzM3NWJiOQ%3D%3D" target="_blank" class="social-icon">Instagram</a>
-        </div>
+    <!-- Footer -->
+    <footer id="contacto" class="footer">
+      <p>&copy; 2025 Sabores Urbanos. Todos los derechos reservados.</p>
+      <p>Cra 13 # 45 - 20, Bogotá, Colombia | +57 123 456 7890</p>
     </footer>
 
+    <!-- Carrito visual -->
+    <div id="carrito-modal" class="carrito-modal">
+      <div class="carrito-content">
+        <h2>Carrito de compras</h2>
+        <ul id="carrito-lista"></ul>
+        <div id="carrito-total"></div>
+        <button id="cerrar-carrito" class="btn">Cerrar</button>
+      </div>
+    </div>
+    <button id="abrir-carrito" class="btn" style="position:fixed;bottom:30px;right:30px;z-index:1000;">🛒 Ver carrito</button>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

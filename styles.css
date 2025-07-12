@@ -1,163 +1,358 @@
-/* Estilo general para el cuerpo */
+/* Colores base */
+:root {
+  --negro: #181818;
+  --amarillo: #FFD700;
+  --amarillo2: #FFCC00;
+  --blanco: #fff;
+}
+
+/* Fondo general */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fdfdfb;
-    box-sizing: border-box;
-    text-align: center; /* Centrar todo el texto */
+  background: var(--negro);
+  color: var(--blanco);
+  font-family: 'Roboto', sans-serif;
 }
 
-header {
-    background-color: #000000;
-    color: #fbff00;
-    padding: 20px;
-    text-align: center; /* Centrar texto del encabezado */
+/* Fuentes base */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fefefe;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Estilo para la letra "M" en el encabezado */
-.highlight-m {
-    color: #FFD700; /* Amarillo */
-    font-weight: bold; /* Opcional: resaltar más la "M" */
+/* Encabezado y navegación */
+.hero {
+  background: var(--negro);
+  color: var(--amarillo);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
 }
 
-/* Estilo para el resto del encabezado */
-header h1 {
-    color: #fff; /* Blanco para el resto del texto */
-    font-size: 2.5rem; /* Tamaño del texto */
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-    line-height: 1.2; /* Ajustar el espaciado entre líneas */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: var(--negro);
+  color: var(--amarillo);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+.logo {
+  color: var(--amarillo);
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
 }
 
-a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
+.menu a {
+  text-decoration: none;
+  color: var(--amarillo);
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
-/* Contenedor principal del menú */
-#menu {
-    display: flex;
-    flex-wrap: wrap; /* Permitir que los elementos se ajusten en varias filas */
-    justify-content: center; /* Centrar los elementos horizontalmente */
-    gap: 20px; /* Espaciado entre los cuadros */
-    padding: 20px;
-    text-align: center; /* Centrar texto dentro del menú */
+.menu a:hover {
+  color: var(--amarillo2);
 }
 
-/* Cuadros del menú */
+.hero-content {
+  text-align: center;
+  margin-top: 20vh;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--amarillo);
+  color: var(--negro);
+  border: none;
+  padding: 0.8em 2em;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: var(--amarillo2);
+}
+
+/* Sección de menú */
+.menu-section {
+  background: var(--negro);
+  padding: 3rem 1rem;
+}
+
+.menu-section h2 {
+  color: var(--amarillo);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
 .menu-item {
-    flex: 1 1 calc(33.33% - 40px); /* Ocupa un tercio del ancho con espacio entre elementos */
-    max-width: 300px; /* Ancho máximo */
-    height: auto; /* Altura automática para adaptarse al contenido */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid #FFA500;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #222;
-    color: #FFD700;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center; /* Centrar texto dentro de cada cuadro */
+  background: var(--negro);
+  border: 2px solid var(--amarillo);
+  border-radius: 16px;
+  color: var(--blanco);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  padding: 1.5rem 1rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.2s;
 }
 
-/* Asegurar que las imágenes dentro del menú sean proporcionales */
+.menu-item:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 4px 20px rgba(255,215,0,0.15);
+}
+
 .menu-item img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 5px;
+  width: 100%;
+  max-width: 220px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--amarillo2);
 }
 
-/* Botones dentro del menú */
-.menu-item button {
-    width: 80%; /* Botones con ancho consistente */
-    padding: 10px;
-    font-size: 16px;
-    background-color: #FFA500;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.menu-precio {
+  color: var(--amarillo);
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
-.menu-item button:hover {
-    background-color: #FF8C00; /* Cambiar color al pasar el mouse */
+.menu-item h3 {
+  color: var(--amarillo);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
-button {
-    background: #ff5733;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+.menu-item p {
+  color: var(--blanco);
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
 }
 
-/* Sección de contacto */
-#contacto {
-    padding: 20px;
-    text-align: center; /* Centrar texto de la sección de contacto */
+.menu-btn {
+  background: var(--amarillo);
+  color: var(--negro);
+  border: none;
+  border-radius: 20px;
+  padding: 0.6em 1.5em;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s;
 }
 
-/* Media queries para dispositivos más pequeños */
-@media (max-width: 768px) {
-    .menu-item {
-        flex: 1 1 calc(50% - 20px); /* Ocupa la mitad del ancho en pantallas medianas */
-    }
+.menu-btn:hover {
+  background: var(--amarillo2);
 }
 
-@media (max-width: 480px) {
-    .menu-item {
-        flex: 1 1 100%; /* Ocupa todo el ancho en pantallas pequeñas */
-    }
+/* Galería */
+.galeria {
+  background: #f4f4f4;
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
-/* Estilo para la palabra "Fastfood" */
-.subtitle {
-    display: block; /* Colocar en una nueva línea */
-    font-size: 1.25rem; /* Tamaño al 50% del texto principal */
-    color: #fff; /* Blanco */
-    margin-top: 5px; /* Espaciado superior */
+.galeria h2 {
+  color: var(--amarillo);
 }
 
-/* Estilo para el pie de página */
-footer {
-    background-color: #222; /* Fondo oscuro */
-    color: #FFD700; /* Texto amarillo */
-    text-align: center; /* Centrar contenido */
-    padding: 20px;
-    margin-top: 20px;
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
-/* Estilo para los enlaces de redes sociales */
-.social-links {
-    margin-top: 10px;
+.galeria-grid img {
+  width: 100%;
+  border: 3px solid var(--amarillo);
+  border-radius: 10px;
 }
 
-.social-icon {
-    color: #FFD700; /* Amarillo */
-    text-decoration: none; /* Quitar subrayado */
-    font-size: 1.2rem; /* Tamaño del texto */
-    margin: 0 10px; /* Espaciado entre enlaces */
-    transition: color 0.3s ease; /* Efecto de transición */
+/* Reservas */
+.reserva {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #fff;
 }
 
-.social-icon:hover {
-    color: #7700ff; /* Cambiar a naranja al pasar el mouse */
+.reserva h2 {
+  color: var(--amarillo);
 }
+
+.reserva-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.reserva-form input,
+.reserva-form button {
+  border: 2px solid var(--amarillo);
+  background: var(--negro);
+  color: var(--blanco);
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.reserva-form button {
+  background: var(--amarillo);
+  color: var(--negro);
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  background: var(--negro);
+  color: var(--amarillo);
+  padding: 2em 0;
+  text-align: center;
+  border-top: 2px solid var(--amarillo2);
+}
+
+/* Mensaje de confirmación */
+.confirm-msg {
+  background: var(--amarillo);
+  color: var(--negro);
+  border-radius: 10px;
+  padding: 1em;
+  margin-top: 1em;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(24,24,24,0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+/* Animaciones de entrada */
+.invisible {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav.scrolled {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+/* Carrito visual */
+.carrito-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(24,24,24,0.95);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+.carrito-modal.active {
+  display: flex;
+}
+.carrito-content {
+  background: var(--negro);
+  border: 2px solid var(--amarillo);
+  border-radius: 16px;
+  padding: 2rem;
+  color: var(--blanco);
+  min-width: 320px;
+  max-width: 90vw;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.carrito-content h2 {
+  color: var(--amarillo);
+  margin-bottom: 1rem;
+}
+#carrito-lista {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+#carrito-lista li {
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid var(--amarillo2);
+  padding-bottom: 0.5rem;
+}
+#carrito-total {
+  color: var(--amarillo);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
