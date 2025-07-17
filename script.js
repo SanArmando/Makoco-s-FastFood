@@ -70,11 +70,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Carrito de compras
   let carrito = [];
-  const carritoModal = document.getElementById('carrito-modal');
-  const abrirCarritoBtn = document.getElementById('abrir-carrito');
-  const cerrarCarritoBtn = document.getElementById('cerrar-carrito');
-  const carritoLista = document.getElementById('carrito-lista');
-  const carritoTotal = document.getElementById('carrito-total');
+
+  // Cargar carrito desde localStorage al iniciar
+  window.onload = function() {
+    const guardado = localStorage.getItem('carrito');
+    if (guardado) {
+      carrito = JSON.parse(guardado);
+      actualizarCarrito();
+    }
+  };
 
   // Agregar producto al carrito
   document.querySelectorAll('.menu-btn').forEach(btn => {
@@ -115,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mostrarConfirmacion('Carrito vaciado');
   }
 
-  // Actualizar lista y total
+  // Actualizar la lista del carrito y el total
   function actualizarCarrito() {
     const listaPedido = document.getElementById('lista-pedido');
     const totalPedido = document.getElementById('total-pedido');
@@ -131,22 +135,58 @@ document.addEventListener('DOMContentLoaded', () => {
     totalPedido.textContent = `Total: $${total.toFixed(2)}`;
     localStorage.setItem('carrito', JSON.stringify(carrito));
   }
-  window.onload = function() {
-    const guardado = localStorage.getItem('carrito');
-    if (guardado) {
-        carrito = JSON.parse(guardado);
-        actualizarCarrito();
-    }
-}
 
-  // Eliminar producto del carrito
+  // Eliminar producto individual
   function eliminarProducto(idx) {
     carrito.splice(idx, 1);
     actualizarCarrito();
     mostrarConfirmacion('Producto eliminado');
   }
 
-  // Mostrar el recibo en un modal
+  // Vaciar carrito
+  function vaciarCarrito() {
+    carrito = [];
+    actualizarCarrito();
+    localStorage.removeItem('carrito');
+    mostrarConfirmacion('Carrito vaciado');
+  }
+
+  // Mostrar confirmación visual
+  function mostrarConfirmacion(mensaje) {
+    const confirmacion = document.getElementById('confirmacion-carrito');
+    confirmacion.textContent = mensaje;
+    confirmacion.style.display = 'block';
+    setTimeout(() => { confirmacion.style.display = 'none'; }, 2000);
+  }
+
+  // Finalizar pedido y mostrar recibo en modal
+  function realizarPedido() {
+    if (carrito.length === 0) {
+        mostrarConfirmacion('El carrito está vacío.');
+        return;
+    }
+    const metodoPago = document.querySelector('input[name="metodo-pago"]:checked').value;
+    let recibo = 'Pedido:\n';
+    let total = 0;
+    carrito.forEach(item => {
+        recibo += `${item.producto} - $${item.precio.toFixed(2)}\n`;
+        total += item.precio;
+    });
+    recibo += `Método de pago: ${metodoPago}\nTotal: $${total.toFixed(2)}`;
+
+    // Guardar en historial
+    let historial = JSON.parse(localStorage.getItem('historialPedidos') || '[]');
+    historial.push({ pedido: recibo, fecha: new Date().toLocaleString() });
+    localStorage.setItem('historialPedidos', JSON.stringify(historial));
+
+    mostrarModalRecibo(recibo);
+    enviarMensajeAdministrador(recibo);
+    carrito = [];
+    actualizarCarrito();
+    localStorage.removeItem('carrito');
+  }
+
+  // Modal para recibo
   function mostrarModalRecibo(recibo) {
     document.getElementById('contenido-recibo').textContent = recibo;
     document.getElementById('modal-recibo').style.display = 'block';
@@ -159,27 +199,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target == document.getElementById('modal-recibo')) cerrarModalRecibo();
   }
 
-  function mostrarConfirmacion(mensaje) {
-    const confirmacion = document.getElementById('confirmacion-carrito');
-    confirmacion.textContent = mensaje;
-    confirmacion.style.display = 'block';
-    setTimeout(() => { confirmacion.style.display = 'none'; }, 2000);
+  // Simulación de mensaje al administrador
+  function enviarMensajeAdministrador(mensaje) {
+    console.log('Mensaje al administrador:', mensaje);
+    // Aquí puedes integrar un servicio real si lo deseas
   }
 
-  function agregarAlCarrito(producto, precio, cantidad = 1) {
-    if (!producto || precio < 0 || cantidad < 1) {
-        mostrarConfirmacion('Datos inválidos');
-        return;
-    }
-    carrito.push({ producto, precio });
-    actualizarCarrito();
-    mostrarConfirmacion('Producto añadido al carrito');
-}
-
-  function realizarPedido() {
-    // Guardar en historial
-    let historial = JSON.parse(localStorage.getItem('historialPedidos') || '[]');
-    historial.push({ pedido: recibo, fecha: new Date().toLocaleString() });
-    localStorage.setItem('historialPedidos', JSON.stringify(historial));
-  }
+  agregarAlCarrito('Hamburguesa', 5.99);
+  agregarAlCarrito('Papas Fritas', 2.99);
 });

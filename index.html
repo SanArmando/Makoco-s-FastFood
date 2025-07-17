@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sabores Urbanos</title>
+    <title>Makoco's Fastfood</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,7 @@
     <!-- Header -->
     <header class="hero">
       <nav class="nav">
-        <div class="logo">Sabores Donde San Armando</div>
+        <div class="logo">Makoco´s Fast Food</div>
         <ul class="menu">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#menu">Menú</a></li>
@@ -26,11 +26,31 @@
         </ul>
       </nav>
       <div class="hero-content">
-        <h1>Explora el sabor en cada bocado</h1>
+        <h1><!-- Banner como fondo de encabezado -->
+    <header class="banner-header">
+      <nav>
+        <!-- Aquí va tu menú de navegación -->
+      </nav>
+      <div class="banner-content">
+        <h1>
+          <span class="highlight-m">M</span>akoco´s Fast Food
+        </h1>
+        <p>Explora el sabor en cada bocado</p>
         <p>Una experiencia culinaria única en el corazón de la ciudad</p>
-        <a href="#reserva" class="btn">Reserva Ahora</a>
+        <div>
+          <!-- Botón "Reservar Ahora" que abre el chat de WhatsApp -->
+<button onclick="window.open('https://wa.me/573023780417?text=Hola,%20quiero%20realizar%20un%20pedido%20en%20Makoco\'s%20Fastfood', '_blank')" aria-label="Reservar mesa por WhatsApp">
+  Reservar Ahora
+</button>
+          <!-- Botón "Realizar Pedido" que abre el chat de WhatsApp -->
+<button onclick="window.open('https://wa.me/573023780417?text=Hola,%20quiero%20realizar%20un%20pedido%20en%20Makoco\'s%20Fastfood', '_blank')" aria-label="Realizar un pedido por WhatsApp">
+  Realizar Pedido
+</button>
+        </div>
       </div>
     </header>
+
+    
 
     <!-- Menú Makoco's Fast Food -->
     <section id="menu" class="menu-section">
@@ -122,7 +142,27 @@
         </div>
       </div>
     </section>
+    <!-- Elimina la sección de historial de pedidos -->
+<!-- filepath: index.html -->
 
+<!-- Elimina este bloque de tu HTML -->
+<!--
+<section id="historial-pedidos">
+  <h2>Historial de pedidos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Productos</th>
+        <th>Método de pago</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tabla-historial"></tbody>
+  </table>
+</section>
+-->
     <!-- Galería -->
     <section id="galeria" class="galeria">
       <h2>Galería</h2>
@@ -133,6 +173,10 @@
         <img src="images/Foto/Bebidas.jpg" alt="Bebidas" />
       </div>
     </section>
+    <!-- Historial de pedidos en tabla con detalles y opción de eliminar -->
+<!-- filepath: index.html -->
+
+
 
     <!-- Reservas -->
     <section id="reserva" class="reserva">
@@ -150,8 +194,26 @@
     <!-- Footer -->
     <footer id="contacto" class="footer">
       <p>&copy; Sabores Donde San Armando 2025. Todos los derechos reservados.</p>
-      <p> Barrio Mamatoco , Cra 13 # 45 - 20, Santa marta , Colombia | +57 3013123773</p>
+      <p> Barrio Mamatoco , Cra 13 # 45 - 20, Santa marta , Colombia | +57 3023780417</p>
+      <!-- Botón de WhatsApp con estilo igual al de "Ver el carrito" -->
+    <button class="btn-wpp" onclick="window.open('https://wa.me/573023780417?text=Hola,%20quiero%20realizar%20un%20pedido%20en%20Makoco\'s%20Fastfood', '_blank')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:24px; vertical-align:middle; margin-right:8px;">
+      Pedir por WhatsApp
+    </button>
+
+    <!-- Botones de redes sociales con estilo igual al de WhatsApp -->
+    <div class="redes-sociales">
+      <button class="btn-red-social" onclick="window.open('https://www.facebook.com/people/Makocos-Fast-Food/61572751850561/', '_blank')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width:24px; vertical-align:middle; margin-right:8px;">
+        Facebook
+      </button>
+      <button class="btn-red-social" onclick="window.open('https://www.instagram.com/makocosfastfood/?igsh=ZGUzMzM3NWJiOQ%3D%3D', '_blank')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:24px; vertical-align:middle; margin-right:8px;">
+        Instagram
+      </button>
+    </div>
     </footer>
+    
 
     <!-- Carrito visual -->
     <div id="carrito-modal" class="carrito-modal">
@@ -164,7 +226,8 @@
     </div>
     <button id="abrir-carrito" class="btn" style="position:fixed;inset-block-end:30px;inset-inline-end:30px;z-index:1000;">🛒 Ver carrito</button>
     
- 
+
+   
 
     <!-- Modal para el recibo -->
     <div id="modal-recibo" class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-recibo" tabindex="-1">
